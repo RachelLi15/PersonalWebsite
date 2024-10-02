@@ -1,0 +1,21 @@
+body {
+    background: #DCD6F7;
+}
+
+.title {
+    font-size: x-large;
+    color: white;
+}
+
+#hobby-1 {
+    color: red;
+}
+
+#headshot {
+    width: 15rem;
+    margin: 20rem 10rem;
+    border-style: solid;
+    border-color: white;
+    border-width: 10rem;
+    padding: 20rem 10rem;
+}
