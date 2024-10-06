@@ -1,21 +1,390 @@
+:root {
+    --text-color: #121417;
+    --link-color: #446fe7; 
+    --background-color: #fafafa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #DCD6F7;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+    max-width: 87.5rem;
+    margin: 0 auto;
 }
 
-.title {
-    font-size: x-large;
-    color: white;
+a {
+    color: var(--link-color);
+    text-decoration: none;
 }
 
-#hobby-1 {
-    color: red;
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    height: 5rem;
 }
 
-#headshot {
-    width: 15rem;
-    margin: 20rem 10rem;
-    border-style: solid;
-    border-color: white;
-    border-width: 10rem;
-    padding: 20rem 10rem;
+nav .left a {
+    color: var(--text-color);
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+nav .right a {
+    color: var(--text-color);
+    margin: 0 0.625rem;
+    transition: .1s;
+}
+
+nav .right a:hover {
+    color: var(--link-color);
+}
+
+nav .right a:last-child {
+    color: var(--background-color);
+    background-color: var(--text-color);
+    padding: 0.188rem 0.563rem;
+    border-radius: 0.313rem;
+}
+
+nav .right a:last-child:hover {
+    color: var(--link-color);
+    background-color: var(--background-color);
+}
+
+nav .right a span {
+    margin-left: 0.188rem;
+}
+
+/* Intro */
+.intro-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    margin: 2.5rem 0;
+    margin-bottom: 6.25rem;
+    gap: 2.5rem;
+}
+
+.intro-section .text {
+    flex: 5;
+    font-size: 1.1rem;
+}
+.intro-section .text h2 { 
+    font-size: 2.813rem;
+}
+
+.intro-section .text .links {
+    margin-top: 1.563rem;
+}
+
+.intro-section .text .links a {
+    display: inline-block;
+    padding: 0.313rem 0.625rem;
+    border: 0.125rem solid var(--link-color);
+    border-radius: 0.313rem;
+    margin-right: 0.625rem;
+    margin-bottom: 0.625rem;
+    transition: 0.1s;
+}
+
+.intro-section .text .links a:hover {
+    color: var(--text-color);
+    border: 0.125rem solid var(--text-color);
+}
+
+.intro-section .headshot {
+    flex: 2;
+    display: flex;
+    justify-content: right;
+}
+
+.intro-section .headshot img {
+    border-radius: 50%;
+    width: 21.875rem;
+}
+
+/* Skills */
+.skills-section {
+    padding: 0 2.5rem;
+    margin-bottom: 6.25rem;
+}
+
+.skills-section h2 {
+    text-align: center;
+    font-size: 2rem;;
+}
+
+.skills-section .cells {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skills-section .cells .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    width: 12.5rem;
+    padding: 0.625rem 1.25rem;
+    margin: 0.625rem;
+    border: 0.094rem solid #d3d3d3;
+    border-radius: 5px;
+}
+
+.skills-section .cells .cell img {
+    width: 1.875rem;
+    height: 1.875rem;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+.skills-section .cells .cell span {
+    font-size: 1.125rem;
+}
+
+/* Experience */
+.experience-section {
+    padding: 0 2.5rem;
+    margin-bottom: 6.25rem;
+}
+
+.experience-section h2 {
+    font-size: 2rem;;
+}
+
+.experience-section .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: center;     
+    gap: 1rem;            
+}
+
+.experience-section .cards .card {
+    position: relative;    
+    width: 17rem;             
+    height: 25rem;         
+    margin: 0.625rem 0.625rem 0.625rem 0;     
+    border: 3px solid #080808; 
+    border-radius: 15px;     
+    background-color: var(--background-color);
+    perspective: 1000px;    
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+
+}
+
+.experience-section .cards .card img {
+    width: 7rem;
+    height: auto;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+
+.experience-section .cards .card .card-front,
+.experience-section .cards .card .card-back {
+    position: absolute;       
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.9s ease;
+    border-radius: 15px;     
+}
+
+.experience-section .cards .card .card-front {
+    z-index: 2;                
+    transform: rotateY(0deg); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.experience-section .cards .card .card-front .card-front-text {
+    text-align: center;
+}
+
+
+.experience-section .cards .card .card-back {
+    z-index: 1;               
+    transform: rotateY(180deg); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;  
+}
+
+.experience-section .cards .card .card-back ul {
+    padding-left: 1rem;
+}
+
+.experience-section .cards .card:hover .card-front {
+    transform: rotateY(-180deg);
+}
+
+.experience-section .cards .card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+
+/* Contact */
+.contact-section {
+    padding: 0 2.5rem;
+    margin-bottom: 3.125rem;
+}
+
+.contact-section h2 {
+    font-size: 2rem;;
+}
+
+.contact-section .group {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.contact-section .group .text {
+    flex: 3;
+    margin-top: 1.25rem;
+}
+
+.contact-section .group form {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section .group form input,
+.contact-section .group form textarea {
+    font-family: "Poppins", sans-serif;
+    border: 2px solid var(--link-color);
+    background-color: transparent;
+    padding: 0.625rem;
+    margin-bottom: 0.938rem;
+    
+}
+
+.contact-section .group form button {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background-color: var(--link-color);
+    border: none;
+    height: 3.125rem;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.contact-section .group form button:hover {
+    filter: brightness(0.9);
+}
+
+@media (max-width: 850px) {
+    /* Intro */
+    .intro-section text h2 {
+        font-size: 2.188rem;
+    }
+}
+
+@media (max-width: 740px) {
+    /* Intro */
+    .intro-section {
+        flex-direction: column-reverse;
+    }
+
+    .intro-section headshot img {
+        width: 18.75rem;
+    }
+
+    /* Contact */ 
+    .contact-section .group {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    /* NAVBAR */
+    nav {
+        padding: 0 1.25rem;
+    }
+
+    nav .right a {
+        font-size: 1.375rem;
+    }
+
+    nav .right a:last-child {
+        color: var(--text-color);
+        background-color: transparent;
+        padding: 0;
+    }
+
+    nav .right span {
+        display: none;
+    }
+
+    /* Intro */
+    .intro-section {
+        padding: 0 1.25rem;
+    }
+
+    .intro-section h2 {
+        font-size: 1.375rem;
+    }
+
+    /* Skills */
+    .skills-section   {
+        padding: 0 1.25rem;
+    }
+
+    .skills-section .cells .cell span {
+        font-size: 1rem;
+    }
+
+    /* Experience */
+    .experience-section {
+        padding: 0 1.25rem;
+    }
+
+    .experience-section .cards .card {
+        width: 12rem;             
+        height: 20rem; 
+    }
+
+    .experience-section .cards .card .card-front h2,
+    .experience-section .cards .card .card-back h2 {
+        font-size: 1rem;
+    }
+
+
+    .experience-section .cards .card .card-front p,
+    .experience-section .cards .card .card-back ul {
+        font-size: 0.8rem;
+    }
+
+    .experience-section .cards {
+        justify-content: center;
+    }
+    /* Contact */ 
+    .contact-section {
+        padding: 0 1.25rem;
+    }
 }
